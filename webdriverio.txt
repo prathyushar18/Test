@@ -1,0 +1,21 @@
+var webdriverio=require('webdriverio');
+var options= {
+	desiredCapabilities: {
+		browserName: 'firefox'
+	}
+};
+
+webdriverio
+
+	.remote(options)
+	.init()
+	.url('http://www.google.com)
+	.setValue('*[name="q"]','webdriverio')
+	.click('*[name="btnK"]')
+	.pause(3000)
+	.click('[href="/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwj0xr7TxbTXAhUEOCYKHY9wBf4QFggoMAA&url=http%3A%2F%2Fwebdriver.io%2F&usg=AOvVaw2qVMX77dE-ADoL98ZU-BmM"]')
+	.getTitle().then(function(title) {
+        console.log('Title was: ' + title)
+    })
+	.end();
+	

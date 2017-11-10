@@ -1,0 +1,22 @@
+package com.test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Cucumberjs {
+    static WebDriver driver;
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\Selenium\\Browser drivers\\chromedriver.exe");
+        driver = new ChromeDriver();	
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("https://www.google.com/");
+		driver.findElement(By.xpath("//input[@id='gs_htif0']")).sendKeys("Cucumber js");
+		driver.findElement(By.xpath("//input[@value='Google Search' ]")).click();
+		driver.findElement(By.xpath("//*[@id='rso']/div/div/div[1]/div/div/h3/a")).click();
+	}
+
+}
